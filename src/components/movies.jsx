@@ -119,8 +119,8 @@ class Movies extends Form {
                  sortColumn,
                 searchQuery } = this.state;
         const { user } = this.props;
-        if(count === 0) 
-            return <div className="alert alert-danger mt-4" role="alert">There is no movie in database </div>
+        // if(count === 0) 
+        //     return <div className="alert alert-danger mt-4" role="alert">There is no movie in database </div>
 
         const {totalCount , movies} =   this.getPagedData();
       
