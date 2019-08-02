@@ -9,8 +9,7 @@ const Input = ({ name , label ,  errors , ...rest}) => {
                     {...rest} 
                     name={name}
                     id={name}
-                    className="form-control"
-                    autoFocus />
+                    className="form-control" />
             </div>
             {errors && <div className="alert alert-danger">{ errors }</div>}
         </React.Fragment>

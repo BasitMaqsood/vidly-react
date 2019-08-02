@@ -1,9 +1,8 @@
-import React , { Component } from 'react';
+import React from 'react';
 import Joi from 'joi-browser';
 import Form from './common/form';
 import { getGenres } from '../services/genreService';
 import { getMovie, saveMovie } from '../services/movieServices';
-import { async } from 'q';
 
 class MovieForm extends Form{
 
@@ -57,6 +56,7 @@ class MovieForm extends Form{
     }
 
     async componentDidMount(){
+
         await this.populateGenre();
 
         await this.populateMovie();
@@ -72,8 +72,6 @@ class MovieForm extends Form{
             numberInStock: movie.numberInStock,
             dailyRentalRate: movie.dailyRentalRate
         };
-
-
     }
 
     doSubmit = async () =>{

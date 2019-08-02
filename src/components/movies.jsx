@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { getMovies, deleteMovie } from '../services/movieServices';
@@ -10,7 +10,6 @@ import { paginate } from '../utils/paginate';
 import Form from './common/form';
 import _ from 'lodash';
 import SearchBox from './common/searchBox';
-import { async } from 'q';
 
 
 class Movies extends Form {
@@ -18,6 +17,7 @@ class Movies extends Form {
     state = { 
         allMovies: [],
         genres:[],
+        count:1,
         currentPage: 1,
         pageSize: 4,
         searchQuery: "",
@@ -116,8 +116,7 @@ class Movies extends Form {
         const { length: count } = this.state.allMovies;
         const { pageSize,
                 currentPage,
-                 sortColumn, 
-                 allMovies,
+                 sortColumn,
                 searchQuery } = this.state;
         const { user } = this.props;
         if(count === 0) 
