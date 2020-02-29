@@ -23,7 +23,6 @@ class TableBody extends Component {
                                 {this.renderCell(item , column)}
                             </td>)
                         }</tr>)}
-                
             </tbody>
          );
     }

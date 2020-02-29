@@ -7,5 +7,5 @@ export function register(user){
         email: user.username,
         name: user.name,
         password: user.password
-    })
+    });
 }

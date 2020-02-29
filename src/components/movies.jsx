@@ -10,8 +10,6 @@ import { paginate } from '../utils/paginate';
 import Form from './common/form';
 import _ from 'lodash';
 import SearchBox from './common/searchBox';
-
-
 class Movies extends Form {
 
     state = { 
@@ -27,7 +25,7 @@ class Movies extends Form {
 
      async componentDidMount(){
          const { data } = await getGenres();
-        const genres = [{ _id : "" , name: 'All Genres'} , ...data]
+         const genres = [{ _id : "" , name: 'All Genres'} , ...data]
 
         const { data: allMovies } = await getMovies();
         this.setState({
@@ -50,8 +48,6 @@ class Movies extends Form {
              this.setState({
                  allMovies : orignalMovies
              });
-
-
          }
      };
 
@@ -79,7 +75,6 @@ class Movies extends Form {
      };
 
      handleSort = sortColumn =>{
-        
          this.setState({
              sortColumn
          });
@@ -96,7 +91,7 @@ class Movies extends Form {
         let filtered = allMovies;
         if(searchQuery){
              filtered = allMovies.filter(m =>
-                m.title.toLowerCase().startsWith(searchQuery.toLowerCase()));
+                m.title.toLowerCase().includes(searchQuery.toLowerCase()));
         }
         else if(selectedGenre && selectedGenre._id){
             
@@ -132,7 +127,7 @@ class Movies extends Form {
                     items={ this.state.genres }
                     selectedItem={this.state.selectedGenre}
                     onItemSelect={this.handleGenreSelect}/>
-                </div>
+            </div>
             <div className="col mt-4">
                 {user &&
                 (<Link to='/movies/new'

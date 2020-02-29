@@ -11,13 +11,13 @@ class Form extends Component {
      };
 
      validate = () => {
-         console.log('Start Saved');
+        console.log('Start Saved');
         const options = { abortEarly : false };
         const { error } = Joi.validate(this.state.data , this.schema, options);
         if(!error) return null;
         const errors = {};
         for(let item of error.details)
-        errors[item.path[0]] = item.message;
+            errors[item.path[0]] = item.message;
         console.log('Error is' , errors)
         return errors;
     };
@@ -60,7 +60,7 @@ class Form extends Component {
         return(
         <button 
             disabled={this.validate()}
-            className="btn btn-primary">
+            className="btn btn-primary ">
         {label} </button>);
     }
 
@@ -87,8 +87,7 @@ class Form extends Component {
                 label={label}
                 options={options}
                 onChange={this.handleChange}
-                errors={errors[name]}
-             />
+                errors={errors[name]}/>
         );
     }
 }

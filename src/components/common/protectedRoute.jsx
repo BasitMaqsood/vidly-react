@@ -14,7 +14,6 @@ const ProtectedRoute = ({path , component: Component , render , ...rest}) => {
       }} />;
       return Component ? <Component {...props} /> : render(props);
     }} />
-    
     );
 }
  

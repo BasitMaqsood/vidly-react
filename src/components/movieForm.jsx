@@ -77,8 +77,10 @@ class MovieForm extends Form{
     doSubmit = async () =>{
         // Calling a Server
         await saveMovie(this.state.data);
+        console.log(this.state.data)
+        
         console.log('Submitted ...');
-        this.props.history.replace('/movies');
+        this.props.history.replace('/');
 
    }
 

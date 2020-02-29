@@ -1,6 +1,5 @@
 import jwtDecode from 'jwt-decode';
 import http from './httpService';
-import { async } from 'q';
 
 const apiEndpoint = '/auth';
 const tokenKey = 'token';
